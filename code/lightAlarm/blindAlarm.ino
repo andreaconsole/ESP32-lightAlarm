@@ -152,7 +152,7 @@
 // 11-02-2019, ES: MQTT topic and subtopic size enlarged.
 // 24-04-2019, ES: Do not lock SPI during gettime().  Calling gettime may take a long time.
 // 15-05-2019, ES: MAX number of presets as a defined constant.
-// 14/07/2019, AC: added/modified code (**AC**) to use it as an alarm.
+// 14/08/2019, AC: added/modified code (**AC**) to use it as an alarm.
 //
 //
 // Define the version number, also used for webserver as Last-Modified header and to
