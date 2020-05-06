@@ -1,0 +1,243 @@
+// config.html file in raw data format for PROGMEM
+//
+#define config_html_version 180806
+const char config_html[] PROGMEM = R"=====(
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>RadioAlarm-config</title>
+  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+  <link rel="stylesheet" type="text/css" href="radio.css">
+  <link rel="shortcut icon" type="image/ico" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png" />>
+ </head>
+ <body>
+  <ul>
+   <li><a class="pull-left" href="/index.html">ESP32 - Radio, mp3 player, alarm clock</a></li>
+   <li><a class="pull-right active" href="/config.html">System Configuration</a></li>
+  </ul>
+   <div id="container">
+  <br><br><br>
+  <center>
+  <br>
+   <p>You can edit the configuration here. <i>Note that this will be effective on the next restart of the radio.</i>
+   </p>
+   <h3>Available WiFi networks
+   <select class="select" onChange="handletone(this)" id="ssid"></select>
+   </h3>
+   <textarea rows="20" cols="90" id="prefs">Loading preferences</textarea> 
+   <br> 
+   <button class="button" onclick="fsav()">Save</button>
+   <button class="button buttonr" onclick="httpGet('reset')">Restart</button>
+   <button class="button buttonr" onclick="httpGet('update')">Update</button>
+   <button class="button" onclick="ldef('getdefs')">Default</button>
+    <table style="width:500px">
+    <tr>
+     <td><center>
+      <label for="HA"><big>Treble Gain:</big></label>
+      <br>
+      <select class="select" onChange="handletone(this)" id="toneha">
+       <option value="8">-12 dB</option>
+       <option value="9">-10.5 dB</option>
+       <option value="10">-9 dB</option>
+       <option value="11">-7.5 dB</option>
+       <option value="12">-6 dB</option>
+       <option value="13">-4.5 dB</option>
+       <option value="14">-3 dB</option>
+       <option value="15">-1.5 dB</option>
+       <option value="0" selected>Off</option>
+       <option value="1">+1.5 dB</option>
+       <option value="2">+3 dB</option>
+       <option value="3">+4.5 dB</option>
+       <option value="4">+6 dB</option>
+       <option value="5">+7.5 dB</option>
+       <option value="6">+9 dB</option>
+       <option value="7">+10.5 dB</option>
+      </select>
+      <br><br>
+     </td>
+     <td><center>
+      <label for="HF"><big>Treble Freq:</big></label>
+      <br>
+      <select class="select" onChange="handletone(this)" id="tonehf">
+        <option value="1">1 kHz</option>
+        <option value="2">2 kHz</option>
+        <option value="3">3 kHz</option>
+        <option value="4">4 kHz</option>
+        <option value="5">5 kHz</option>
+        <option value="6">6 kHz</option>
+        <option value="7">7 kHz</option>
+        <option value="8">8 kHz</option>
+        <option value="9">9 kHz</option>
+        <option value="10">10 kHz</option>
+        <option value="11">11 kHz</option>
+        <option value="12">12 kHz</option>
+        <option value="13">13 kHz</option>
+        <option value="14">14 kHz</option>
+        <option value="15">15 kHz</option>
+      </select>
+      <br><br> 
+     </center></td>
+     <br><br>
+    </tr>
+    <tr>
+     <td><center>
+      <label for="LA"><big>Bass Gain:</big></label>
+      <br>
+      <select class="select" onChange="handletone(this)" id="tonela">
+       <option value="0" selected>Off</option>
+       <option value="1">+1 dB</option>
+       <option value="2">+2 dB</option>
+       <option value="3">+3 dB</option>
+       <option value="4">+4 dB</option>
+       <option value="5">+5 dB</option>
+       <option value="6">+6 dB</option>
+       <option value="7">+7 dB</option>
+       <option value="8">+8 dB</option>
+       <option value="9">+9 dB</option>
+       <option value="10">+10 dB</option>
+       <option value="11">+11 dB</option>
+       <option value="12">+12 dB</option>
+       <option value="13">+13 dB</option>
+       <option value="14">+14 dB</option>
+       <option value="15">+15 dB</option>
+      </select>
+      <br>
+     </td>
+     <td><center>
+      <label for="LF"><big>Bass Freq:</big></label>
+      <br>
+      <select class="select" onChange="handletone(this)" id="tonelf">
+       <option value="2">10 Hz</option>
+       <option value="3">20 Hz</option>
+       <option value="4">30 Hz</option>
+       <option value="5">40 Hz</option>
+       <option value="6">50 Hz</option>
+       <option value="7">60 Hz</option>
+       <option value="8">70 Hz</option>
+       <option value="9">80 Hz</option>
+       <option value="10">90 Hz</option>
+       <option value="11">100 Hz</option>
+       <option value="12">110 Hz</option>
+       <option value="13">120 Hz</option>
+       <option value="14">130 Hz</option>
+       <option value="15">140 Hz</option>
+      </select> 
+     </center></td>
+     <br><br>
+    </tr>
+   </table>
+   <br><br><br><br>
+   <input type="text" size="60" id="station" placeholder="Enter a station/file here....">
+   <button class="button" onclick="setstat()">PLAY</button>
+   <br><br><br><br>
+   <input type="text" width="600px" size="72" id="resultstr" placeholder="Waiting for a command...."><br>
+   <br><br>
+   <p>Find new radio stations at <a target="blank" href="http://www.internet-radio.com">http://www.internet-radio.com</a></p>
+   <p>Examples: us1.internet-radio.com:8105, skonto.ls.lv:8002/mp3, 85.17.121.103:8800</p><br>
+    <br>
+
+    <script>
+      function httpGet ( theReq )
+      {
+        var theUrl = "/?" + theReq + "&version=" + Math.random() ;
+        var xhr = new XMLHttpRequest() ;
+        xhr.onreadystatechange = function() {
+          if ( xhr.readyState == XMLHttpRequest.DONE )
+          {
+            resultstr.value = xhr.responseText ;
+          }
+        }
+        xhr.open ( "GET", theUrl ) ;
+        xhr.send() ;
+      }
+
+      // Load preferences or default preferences
+      function ldef ( source )
+      {
+        var xhr = new XMLHttpRequest() ;
+        xhr.onreadystatechange = function()
+        {
+          if ( xhr.readyState == XMLHttpRequest.DONE )
+          {
+            prefs.value = xhr.responseText ;
+          }
+        }
+        xhr.open ( "GET", "/?" + source  + "&version=" + Math.random(), false ) ;
+        xhr.send() ;
+      }
+
+      // Save the preferences
+      function fsav()
+      {
+        var str = prefs.value ;
+        var theUrl = "/?saveprefs&version=" + Math.random() ;
+        var xhr = new XMLHttpRequest() ;
+        xhr.onreadystatechange = function()
+        {
+          if ( xhr.readyState == XMLHttpRequest.DONE )
+          {
+            resultstr.value = xhr.responseText ;
+          }
+        }
+        // Remove empty lines
+        while ( str.indexOf ( "\r\n\r\n" ) >= 0 )
+        {
+          str = str.replace ( /\r\n\r\n/g, "\r\n" )      
+        }
+        while ( str.indexOf ( "\n\n" ) >= 0 )
+        {
+          str = str.replace ( /\n\n/g, "\n" )      
+        }
+        xhr.open ( "POST", theUrl, true ) ;
+        xhr.setRequestHeader ( "Content-type", "application/x-www-form-urlencoded" ) ;
+        xhr.send ( str + "\n" ) ;
+      }
+      
+      
+      function handletone ( tonectrl )
+      {
+        var theUrl = "/?" + tonectrl.id + "=" + tonectrl.value +
+                      "&version=" + Math.random() ;
+        var xhr = new XMLHttpRequest() ;
+        xhr.onreadystatechange = function() {
+          if ( xhr.readyState == XMLHttpRequest.DONE )
+          {
+            resultstr.value = xhr.responseText ;
+          }
+        }
+        xhr.open ( "GET", theUrl, false ) ;
+        xhr.send() ;
+      }
+
+      // Fill configuration initially
+      // First the available WiFi networks
+      var i, select, opt, networks, params ;
+
+      select = document.getElementById("selnet") ;
+      var theUrl = "/?getnetworks" + "&version=" + Math.random() ;
+      var xhr = new XMLHttpRequest() ;
+      xhr.onreadystatechange = function() {
+        if ( xhr.readyState == XMLHttpRequest.DONE )
+        {
+          networks = xhr.responseText.split ( "|" ) ;
+          
+          for ( i = 0 ; i < ( networks.length - 1 ) ; i++ )
+          {
+            opt = document.createElement( "OPTION" ) ;
+            opt.value = i ;
+            opt = networks[i] ;
+            ssid.add( opt ) ;
+          }
+        }
+      }
+      xhr.open ( "GET", theUrl, false ) ;
+      xhr.send() ;
+      // Now get the configuration parameters from preferences
+      ldef ( "getprefs" ) ;
+    </script>
+    </div>
+  </body>
+</html>
+
+)=====" ;
