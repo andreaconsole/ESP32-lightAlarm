@@ -1,7 +1,6 @@
 # ESP32-Radio
-Internet radio based on ESP32, VS1053 and a TFT screen.  Will compile in Arduino IDE.
-See the review by Andreas Spiess at https://www.youtube.com/watch?v=hz65vfvbXMs.
-
+Internet radio alarm clock based on ESP32, VS1053 and a TFT screen.  Will compile in Arduino IDE.
+Forked from https://github.com/Edzelf/ESP32-Radio
 Look for documentation and printdesign in the doc directory.
 
 Features:
@@ -36,6 +35,10 @@ Features:
 See documentation in doc/pdf-file.
 
 Last changes:
+- 29-apr-2020,~AC: Alarm function added, web interface changed and optimized for smartphone use
+- 15-apr-2020,~AC: Longpress (no need to click) -> stop streaming; short click to resume
+- 14-apr-2020,~AC: New tft library, new screen content
+- 25-mar-2020, ES: End of playlist: start over.
 - 23-mar-2020, Allow playlists  on SD card.
 - 21-dec-2019, Check for right (VS1053) CHIP.
 - 16-dec-2019, Better logging claimSPI for debug.
