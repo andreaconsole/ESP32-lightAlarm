@@ -1,5 +1,5 @@
 # ESP32-Radio
-Internet radio alarm clock based on ESP32, VS1053 and a TFT screen.  Will compile in Arduino IDE.
+Internet radio alarm clock based on ESP32, VS1053 and a TFT screen.  Will compile in Arduino IDE. 
 Forked from https://github.com/Edzelf/ESP32-Radio
 Look for documentation and printdesign in the doc directory.
 
