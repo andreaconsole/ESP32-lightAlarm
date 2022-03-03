@@ -166,7 +166,7 @@
 // 21-06-2021, ES: Display station name if not in metadata
 // 28-06-2021, ES: Convert special characters in station name
 // 03-03-2022, AC: Changed user interface behaviour, both physical and web
-// xx-03-2022, AC: Changed display stile (better font, added IP info, general content reorganization)
+// 04-03-2022, AC: Changed display stile (bigger font, general content reorganization)
 // Define the version number, also used for webserver as Last-Modified header and to
 // check version for update.  The format must be exactly as specified by the HTTP standard!
 #define VERSION     "Thu, 31 Mar 2022 12:40:00 GMT"
