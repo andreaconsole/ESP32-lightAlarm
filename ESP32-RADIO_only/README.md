@@ -1,9 +1,10 @@
 # ESP32-Radio
 
+----------------------------------------------------------------------------
 NOTE: this is a version modified by me in order to have an interface (both physical - it only needs the rotary encoder and you do not need double and trple clicks to operate - and web) more user friendly.
 I also solved some problems that made the latest version of the original code broken. Now it works out of the box.
 The code still needs to be cleaned and better commented.
-
+----------------------------------------------------------------------------
 
 ![alt text](esp32radio.jpg)
 Internet radio based on ESP32, VS1053 and a TFT screen.  Will compile in Arduino IDE.
@@ -44,6 +45,8 @@ Features:
 See documentation in doc/pdf-file.
 
 Last changes:
+// 03-03-2022, AC: Changed user interface behaviour, both physical and web
+// 04-03-2022, AC: Changed display stile (bigger font, general content reorganization)
 - 28-jun-2021, Allow special characters in station name.
 - 21-jun-2021, Display station name from preference if not in metadata.
 - 29-apr-2021, Fixed SSD1309 bug.
